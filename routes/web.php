@@ -3,21 +3,21 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return 'Zdravo Tibore!';
+    return view('home');
 });
 
 Route::get('/about', function () {
-    return 'Ovo je about stranica';
+    return view('about');
 });
 
-Route::get('/kontakt', function () {
-    return 'Kontaktirajte nas!';
+Route::get('/contact', function () {
+    return view('contact');
 });
 
 Route::get('/service', function () {
-    return 'Naše usluge';
+    return 'Our Serivices';
 });
 
 Route::get('/blog', function () {
-    return 'Dobro došli na blog';
+    return 'Welcome to the blog';
 });
