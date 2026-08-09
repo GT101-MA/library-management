@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-</head>
-<body>
-    <h1>About us</h1>
-    <p>Here, you can find all about us.</p>
+@extends('layouts.app')
 
-<nav>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/contact">Contact</a>
-</nav>
-</body>
-</html>
+@section('content')
+
+    <h1>About us</h1>
+
+    <p>This is the Library Management application.</p>
+
+@endsection
