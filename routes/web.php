@@ -21,3 +21,7 @@ Route::get('/service', function () {
 Route::get('/blog', function () {
     return 'Welcome to the blog';
 });
+
+Route::get('/books', function () {
+    return 'Here you will find all our books.';
+});
