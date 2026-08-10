@@ -23,5 +23,5 @@ Route::get('/blog', function () {
 });
 
 Route::get('/books', function () {
-    return 'Here you will find all our books.';
+    return view('books');
 });
