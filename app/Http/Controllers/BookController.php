@@ -30,5 +30,14 @@ class BookController extends Controller
         Book::create($validated);
 
         return redirect() -> route ('books.index');
+    
+    }
+
+    public function show($id)
+    {
+        $book = Book::findOrFale($id);
+        return view('books.show', [
+            'book' => $book
+        ]);
     }
 }
