@@ -33,9 +33,8 @@ class BookController extends Controller
     
     }
 
-    public function show($id)
+    public function show(Book $book)
     {
-        $book = Book::findOrFale($id);
         return view('books.show', [
             'book' => $book
         ]);
