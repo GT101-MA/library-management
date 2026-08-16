@@ -27,3 +27,6 @@ Route::get('/blog', function () {
 
 Route::post('/books', [BookController::class, 'store'])
        ->name('books.store');
+
+Route::get('/books/{book}', [BookController::class, 'show'])
+       ->name('books.show');

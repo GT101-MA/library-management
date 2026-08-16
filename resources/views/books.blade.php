@@ -16,7 +16,10 @@
             <p>ISBN: {{ $book->isbn }}</p>
         </div>
 
+        <a href="{{ route('books.show', $book->id) }}">View</a>
+
         <hr>
+
 
     @endforeach
 

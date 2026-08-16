@@ -30,5 +30,13 @@ class BookController extends Controller
         Book::create($validated);
 
         return redirect() -> route ('books.index');
+    
+    }
+
+    public function show(Book $book)
+    {
+        return view('books.show', [
+            'book' => $book
+        ]);
     }
 }
