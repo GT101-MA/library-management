@@ -8,14 +8,27 @@ use App\Models\Book;
 class BookController extends Controller
 {
     public function index()
+    {      
+        $books = Book::all();
+        return view('books', ['books' => $books]); // compact('books') - radi isto
+    }
+
+    public function create()
+    {      
+        return view('books.create');
+    }
+
+    public function store(Request $request)
     {
-        Book::create([
-            'title' => 'Clean Code',
-            'author' => 'Robert C. Martin',
-            'publication_year' => 2008,
-            'isbn' => '9780132350884',
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'author' => 'required|string|max:255',
+            'publication_year' => 'required|integer',
+            'isbn' => 'required|string',
         ]);
         
-        return view('books');
+        Book::create($validated);
+
+        return redirect() -> route ('books.index');
     }
 }

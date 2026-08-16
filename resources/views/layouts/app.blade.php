@@ -6,10 +6,14 @@
     <title>Library Management</title>
 </head>
 <body>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
+    <header>
+        <h1>Library Management</h1>
+    </header>
+    
+    <nav>        
+        <a href="{{ route('books.index') }}">Books</a>
+        <a href="{{ route('books.create') }}">Add Book</a>
+
     </nav>
 
     <main>
@@ -17,7 +21,7 @@
     </main>
 
     <footer>
-        <p>Library Management</p>
+        <p>© 2026 Library Management</p>
     </footer>
 
 </body>
