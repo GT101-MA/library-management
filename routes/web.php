@@ -33,3 +33,6 @@ Route::get('/books/{book}', [BookController::class, 'show'])
 
 Route::get('/books/{book}/edit', [BookController::class, 'edit'])
        ->name('books.edit');
+
+Route::put('/books/{book}', [BookController::class, 'update'])
+       ->name('books.update');
