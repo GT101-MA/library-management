@@ -39,4 +39,25 @@ class BookController extends Controller
             'book' => $book
         ]);
     }
+
+    public function edit(Book $book)
+    {
+        return view('books.edit', [
+            'book' => $book
+        ]);
+    }
+
+        public function update(Request $request, Book $book)
+    {
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'author' => 'required|string|max:255',
+            'publication_year' => 'required|integer',
+            'isbn' => 'required|string',
+        ]);
+    
+        $book -> update($validated);
+    
+        return redirect()->route('books.show', $book);
+    }
 }

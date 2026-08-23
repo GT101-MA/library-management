@@ -30,3 +30,9 @@ Route::post('/books', [BookController::class, 'store'])
 
 Route::get('/books/{book}', [BookController::class, 'show'])
        ->name('books.show');
+
+Route::get('/books/{book}/edit', [BookController::class, 'edit'])
+       ->name('books.edit');
+
+Route::put('/books/{book}', [BookController::class, 'update'])
+       ->name('books.update');

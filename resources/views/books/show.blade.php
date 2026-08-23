@@ -10,4 +10,6 @@
 
    <p>ISBN: {{ $book->isbn }}</p>
 
+   <a href="{{ route('books.edit', $book) }}">Edit</a>
+
 @endsection
