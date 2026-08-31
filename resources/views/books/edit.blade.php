@@ -36,10 +36,7 @@
            </select>
        </div>
 
-       <br>
-               value="{{ $book->author }}"
-           >
-       </div>
+
 
        <br>
 
