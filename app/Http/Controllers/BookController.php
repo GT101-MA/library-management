@@ -4,25 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\Author;
 
 class BookController extends Controller
 {
     public function index()
     {      
-        $books = Book::all();
-        return view('books', ['books' => $books]); // compact('books') - radi isto
+        $books = Book::with('author')->get(); // eager loading  
+        return view('books', 
+        ['books' => $books]); // compact('books') - radi isto
     }
 
     public function create()
     {      
-        return view('books.create');
+        $authors = Author::all();
+        return view('books.create', 
+        ['authors' => $authors]);
     }
 
     public function store(Request $request)
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'author' => 'required|string|max:255',
+            'author_id' => 'required|exists:authors,id',
             'publication_year' => 'required|integer',
             'isbn' => 'required|string',
         ]);
@@ -42,8 +46,10 @@ class BookController extends Controller
 
     public function edit(Book $book)
     {
+        $authors = Author::all();
         return view('books.edit', [
-            'book' => $book
+            'book' => $book,
+            'authors' => $authors
         ]);
     }
 
@@ -51,7 +57,7 @@ class BookController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'author' => 'required|string|max:255',
+            'author_id' => 'required|exists:authors,id',
             'publication_year' => 'required|integer',
             'isbn' => 'required|string',
         ]);

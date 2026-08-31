@@ -9,7 +9,7 @@
         <div>
             <h3>{{ $book->title }}</h3>
 
-            <p>Author: {{ $book->author }}</p>
+            <p>Author: {{ $book->author->name }}</p>
 
             <p>Publication year: {{ $book->publication_year }}</p>
 
