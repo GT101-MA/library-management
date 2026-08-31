@@ -23,12 +23,20 @@
        <br>
 
        <div>
-           <label for="author">Author</label>
+           <label for="author_id">Author</label>
 
-           <input
-               type="text"
-               id="author"
-               name="author"
+           <select id="author_id" name="author_id">
+               @foreach ($authors as $author)
+                   <option 
+                   value="{{ $author->id }}" 
+                   @selected($book->author_id === $author->id)>
+                       {{ $author->name }}
+                   </option>
+               @endforeach
+           </select>
+       </div>
+
+       <br>
                value="{{ $book->author }}"
            >
        </div>

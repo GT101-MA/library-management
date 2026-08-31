@@ -13,8 +13,15 @@
         <br>
 
         <div>
-            <label>Author</label>
-            <input type="text" name="author">
+            <label for="author_id">Author</label>
+            <select id="author_id" name="author_id">
+                @foreach ($authors as $author)
+                    <option value="{{ $author->id }}">
+                        {{ $author->name }}
+                    </option>
+                @endforeach
+            </select>
+        
         </div>
 
         <br>        
